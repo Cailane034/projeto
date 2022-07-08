@@ -1,0 +1,13 @@
+{% block title %} 
+    <h1>Lista de agendamentos:</h1> 
+{% endblock %}
+
+{% block content%} 
+    <h3>{{ agendamentos.horario }}</h3>
+    <h3>{{ agendamentos.disciplina }}</h3>
+    <h3>{{ agendamentos.descricao}}</h3>
+    <ul>
+    {% for choice in agendamento.choice_set.all %}
+        <li>{{ choice.choice_text }}</li>
+    {% endfor %}
+{% endblock %}

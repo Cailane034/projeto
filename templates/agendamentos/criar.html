@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load bootstrap %}
+
+{% block sidebar %}
+{% endblock %}
+
+{% block conteudo %}
+<div class="container">
+    <form action="/agendamentos/criar/" method="post">
+        <h3><center><strong>FEZER UM NOVO AGENDAMENTO DE AULA</center></strong></h3>
+        
+        {% csrf_token %}
+        
+        {{form|bootstrap}}
+          
+    <button type="submit" class="btn btn-primary">SALVAR</button>
+    </form>
+</div>
+{% endblock %}

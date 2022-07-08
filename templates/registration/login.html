@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load bootstrap %}
+
+{% block sidebar %}
+{% endblock %}
+
+{% block conteudo %}
+
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <div class="card auth-card">
+            <div class="card-body">
+                <h2><center><strong>FAÇA LOGIN</center></strong></h2>
+
+                <form method="post">
+                    {% csrf_token %}
+
+                    <input type="hidden" name="next" value="{{ next }}">
+
+                    {{ form|bootstrap }}
+
+                    <button type="submit" class="btn btn-info btn-block">ACESSAR</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block rodape %}
+
+{% endblock %}

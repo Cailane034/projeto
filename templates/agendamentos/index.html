@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load bootstrap %}
+
+{% block conteudo %}
+
+<div class="card-body">
+    <h4>Lista de agendamentos</h4>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Data/Horário</th>
+                <th scope="col">Disciplina</th>
+                <th scope="col">Descrição</th>
+                <th scope="col">Turma</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for agendamentos in agendamentos %}
+            <tr>
+                <td>{{ agendamentos.horario }}</td>
+                <td>{{ agendamentos.disciplina }}</td>
+                <td>{{ agendamentos.descricao }}</td>
+                <td>{{ agendamentos.turma }}</td>
+                {% if user.cargo == "PF"  %}
+                <td><a type="button" class="btn btn-warning" href="/agendamentos/editar/{{ agendamentos.id }}">Editar</a>
+                    <a type="button" class="btn btn-danger" href="/agendamentos/excluir/{{ agendamentos.id }}">Excluir</a>
+                </td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% if user.cargo == "PF"  %}
+    <a type="button" class="btn btn-success" href="/agendamentos/criar/">Novo agendamento</a>
+    {% endif %}
+</div>
+{% endblock %}

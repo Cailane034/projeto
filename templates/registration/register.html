@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block sidebar %}
+{% endblock %}
+
+{% block lateral %}
+{% endblock %}
+
+{% block conteudo %}
+
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <div class="card auth-card">
+            <div class="card-body">
+                    <h1>Crie sua conta</h1>
+                    <br>
+                    <form action="." method="post">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <input class="btn btn-primary" type="submit" value="Registrar">
+                    </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block rodape %}
+{% endblock %}
