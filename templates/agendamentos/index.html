@@ -4,23 +4,24 @@
 {% block conteudo %}
 
 <div class="card-body">
-    <h4>Lista de agendamentos</h4>
+    <h2>Lista de agendamentos</h2>
+    <br>
     <table class="table">
         <thead>
             <tr>
-                <th scope="col">Data/Horário</th>
-                <th scope="col">Disciplina</th>
-                <th scope="col">Descrição</th>
-                <th scope="col">Turma</th>
+                <th scope="col" width="25%"><h5>Data/Horário</h5></th>
+                <th scope="col" width="20%"><center><h5>Disciplina</h5></center></th>
+                <th scope="col" width="20%"><center><h5>Descrição</h5></center></th>
+                <th scope="col" width="20%"><center><h5>Turma</h5></center></th>
             </tr>
         </thead>
         <tbody>
             {% for agendamentos in agendamentos %}
             <tr>
-                <td>{{ agendamentos.horario }}</td>
-                <td>{{ agendamentos.disciplina }}</td>
-                <td>{{ agendamentos.descricao }}</td>
-                <td>{{ agendamentos.turma }}</td>
+                <td><strong><a href="/agendamentos/detalhar/{{ agendamentos.id }}">{{ agendamentos.horario }}</strong></a></td>
+                <td><center><strong>{{ agendamentos.disciplina }}</strong></center></td>
+                <td><center><strong>{{ agendamentos.descricao }}</strong></center></td>
+                <td><center><strong>{{ agendamentos.turma }}</strong></center></td>
                 {% if user.cargo == "PF"  %}
                 <td><a type="button" class="btn btn-warning" href="/agendamentos/editar/{{ agendamentos.id }}">Editar</a>
                     <a type="button" class="btn btn-danger" href="/agendamentos/excluir/{{ agendamentos.id }}">Excluir</a>

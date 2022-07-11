@@ -1,12 +1,12 @@
 {% block title %} 
-    <h1>Lista de agendamentos:</h1> 
+    <h1>Detalhes do Agendamento</h1> 
 {% endblock %}
 
 {% block content%} 
-    <h3>{{ agendamentos.horario }}</h3>
-    <h3>{{ agendamentos.disciplina }}</h3>
-    <h3>{{ agendamentos.descricao}}</h3>
-    <ul>
+    <p>A reposição de aula da disciplina de {{ agendamentos.disciplina }} foi marcada para o dia {{ agendamentos.horario }}.
+        <br>
+        <br>
+        <strong>Descrição:</strong> {{ agendamentos.descricao}}</p>
     {% for choice in agendamento.choice_set.all %}
         <li>{{ choice.choice_text }}</li>
     {% endfor %}

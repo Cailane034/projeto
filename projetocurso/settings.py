@@ -120,3 +120,6 @@ LOGIN_REDIRECT_URL = '/agendamentos'
 LOGOUT_REDIRECT_URL = '/accounts/login'
 
 AUTH_USER_MODEL = 'accounts.CustomUser'
+
+EMAIL_BACKEND  =  "django.core.mail.backends.filebased.EmailBackend" 
+EMAIL_FILE_PATH  =  BASE_DIR  /  "sent_emails"
